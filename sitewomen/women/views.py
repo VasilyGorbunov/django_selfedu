@@ -3,15 +3,25 @@ from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from django.urls import reverse
 
+menu = ["О сайте", "Добавить статью", "Обратная связь", "Войти", ]
+
 
 def index(request):
     return render(request,
-                  'women/index.html')
+                  'women/index.html',
+                  {
+                      'title': 'Главная страница',
+                      'menu': menu
+                  })
 
 
 def about(request):
-    return render(request,
-                  'women/about.html')
+    return render(request=request,
+                  template_name='women/about.html',
+                  context={
+                      'title': 'О сайте',
+                      'menu': menu
+                  })
 
 
 def categories(request, cat_id):
