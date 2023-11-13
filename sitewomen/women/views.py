@@ -18,7 +18,7 @@ cats_db = [
 
 
 def index(request):
-    posts = Women.objects.filter(is_published=True)
+    posts = Women.published.all()
     return render(request,
                   'women/index.html',
                   {
